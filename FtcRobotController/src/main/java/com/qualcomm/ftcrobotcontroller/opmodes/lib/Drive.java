@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes.lib;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
- * Created by Ehsan on 6/4/2015.
+ * Drive Train
  */
 public class Drive {
     public static void tank(DcMotor left, DcMotor right, double leftValue,double rightValue ){
@@ -21,8 +21,8 @@ public class Drive {
         rightBack.setPower(rightBackVal*100);
     }
     public static void mecanumArcadeFieldOriented(double y,double x, double c, double gyroheading,DcMotor leftFront,DcMotor rightFront,DcMotor leftBack, DcMotor rightBack){
-        double cosA = Math.cos(Math.toRadians(Util.checkGyroBounds(gyroheading)));
-        double sinA = Math.sin(Math.toRadians(Util.checkGyroBounds(gyroheading)));
+        double cosA = java.lang.Math.cos(java.lang.Math.toRadians(Util.normalizeGyro(gyroheading)));
+        double sinA = java.lang.Math.sin(java.lang.Math.toRadians(Util.normalizeGyro(gyroheading)));
         double xOut = x * cosA - y * sinA;
         double yOut = x * sinA + y * cosA;
         mecanumArcade(yOut,xOut,c,leftFront,rightFront,leftBack,rightBack);
