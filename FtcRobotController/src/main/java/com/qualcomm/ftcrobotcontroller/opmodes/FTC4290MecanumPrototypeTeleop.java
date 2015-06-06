@@ -1,9 +1,9 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.ftcrobotcontroller.opmodes.lib.Drive;
+
+import com.lasarobotics.ftc.Drive;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-
 /**
  * Created by Ehsan on 6/4/2015.
  */
@@ -23,7 +23,7 @@ public class FTC4290MecanumPrototypeTeleop extends OpMode {
 
     @Override
     public void loop() {
-        Drive.mecanumArcade(gamepad1.left_stick_y,gamepad1.left_stick_x,gamepad1.right_stick_x,leftFront,rightFront,leftBack,rightBack);
+        Drive.mecanumArcade(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x, leftFront, rightFront, leftBack, rightBack);
     }
 
     @Override
