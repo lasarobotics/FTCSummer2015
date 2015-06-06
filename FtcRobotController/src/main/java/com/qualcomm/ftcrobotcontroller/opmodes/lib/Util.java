@@ -1,7 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes.lib;
 
 /**
- *  Math Utility Class
+ *  Mathematical and Precision Utilities
  */
 public class Util {
     /**
