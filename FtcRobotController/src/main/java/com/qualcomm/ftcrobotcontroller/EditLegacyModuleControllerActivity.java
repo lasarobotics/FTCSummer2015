@@ -351,7 +351,7 @@ public class EditLegacyModuleControllerActivity extends Activity{
    * @param v - the button that got pressed
    */
   public void editController_portALL(View v){
-    //view is Button
+    //view is ButtonToggle
     //view.getParent is RelativeLayout
     //view.getparent.getparent is the LinearLayout around the whole module zone
     LinearLayout layout = (LinearLayout) v.getParent().getParent();

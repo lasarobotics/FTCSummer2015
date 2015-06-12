@@ -8,7 +8,7 @@
     <include layout="@layout/header"
         android:id="@+id/included_header"/>
 
-  <!-- ****************************************************** Save Button ******************************************************-->
+  <!-- ****************************************************** Save ButtonToggle ******************************************************-->
 
   <RelativeLayout
     android:layout_width="match_parent"
