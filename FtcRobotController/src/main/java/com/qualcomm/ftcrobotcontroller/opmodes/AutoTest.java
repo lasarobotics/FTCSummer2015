@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 /**
- * Created by Ehsan on 6/9/2015.
+ * Autonomous parallel thread test
  */
 public class AutoTest extends OpMode{
     Thread at;

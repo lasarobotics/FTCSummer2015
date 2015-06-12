@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 /**
- * Created by Ehsan on 6/9/2015.
+ * Autonomous parallel thread test
  */
 public class AutoThread extends Thread {
     DcMotor leftFront;
