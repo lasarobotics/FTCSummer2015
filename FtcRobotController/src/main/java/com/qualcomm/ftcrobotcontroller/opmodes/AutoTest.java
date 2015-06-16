@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
  * Autonomous parallel thread test
  */
 public class AutoTest extends OpMode{
-    Thread at;
+    AutoThread at;
     @Override
     public void start() {
         at = new AutoThread(hardwareMap);
@@ -15,7 +15,11 @@ public class AutoTest extends OpMode{
     }
 
     @Override
-    public void loop() {}
+    public void loop() {
+        if (at.isAlive()) {
+            at.update(hardwareMap);
+        }
+    }
     @Override
     public void stop() {
         if(at.isAlive()){

@@ -12,9 +12,17 @@ public class AutoThread extends Thread {
     DcMotor leftBack;
     DcMotor rightBack;
     HardwareMap hardwareMap;
+
+    boolean started = false;
+
     //Empty Constructor
     public AutoThread(HardwareMap h) {
         hardwareMap = h;
+    }
+
+    public void update(HardwareMap h)
+    {
+        this.hardwareMap = h;
     }
 
     //Here is where the autonomous-mode linear sequence of events occurs
@@ -31,7 +39,7 @@ public class AutoThread extends Thread {
         doStuffMethod(2000);
     }
 
-    public void doStuffMethod(int time){
+    private void doStuffMethod(int time){
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
