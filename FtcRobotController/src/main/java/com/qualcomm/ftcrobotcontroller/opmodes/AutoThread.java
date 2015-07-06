@@ -1,5 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.lasarobotics.ftc.monkeyc.MonkeyC;
+import com.lasarobotics.ftc.monkeyc.instructions.Instructions;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -32,6 +34,13 @@ public class AutoThread extends Thread {
         rightFront = hardwareMap.dcMotor.get("rightFront");
         leftBack = hardwareMap.dcMotor.get("leftBack");
         rightBack = hardwareMap.dcMotor.get("rightBack");
+
+        MonkeyC see = new MonkeyC();
+
+        see.clear();
+        see.add(Instructions.moveMotor("leftFront", 1.0d));
+        see.add(Instructions.moveMotor("rightFront", 1.0d));
+        see.add(Instructions.waitForever());
 
         //Simulated action one
         doStuffMethod(1000);
