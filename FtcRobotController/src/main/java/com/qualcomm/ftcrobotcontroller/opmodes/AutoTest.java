@@ -9,7 +9,7 @@ public class AutoTest extends OpMode{
     AutoThread at;
     @Override
     public void start() {
-        at = new AutoThread(hardwareMap);
+        at = new AutoThread(hardwareMap, this);
         //Start the autonomous mode thread
         at.start();
     }

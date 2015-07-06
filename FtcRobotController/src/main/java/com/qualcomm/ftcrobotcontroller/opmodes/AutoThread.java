@@ -1,7 +1,9 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.lasarobotics.ftc.monkeyc.MonkeyC;
-import com.lasarobotics.ftc.monkeyc.instructions.Instructions;
+import com.lasarobotics.ftc.monkeyc.Command;
+import com.lasarobotics.ftc.monkeyc.MonkeyDo;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -14,12 +16,14 @@ public class AutoThread extends Thread {
     DcMotor leftBack;
     DcMotor rightBack;
     HardwareMap hardwareMap;
+    OpMode mode;
 
     boolean started = false;
 
     //Empty Constructor
-    public AutoThread(HardwareMap h) {
+    public AutoThread(HardwareMap h, OpMode mode) {
         hardwareMap = h;
+        this.mode = mode;
     }
 
     public void update(HardwareMap h)
@@ -35,12 +39,15 @@ public class AutoThread extends Thread {
         leftBack = hardwareMap.dcMotor.get("leftBack");
         rightBack = hardwareMap.dcMotor.get("rightBack");
 
-        MonkeyC see = new MonkeyC();
+        MonkeyDo doo = new MonkeyDo(hardwareMap, mode);
+        MonkeyC see = new MonkeyC(doo);
 
         see.clear();
-        see.add(Instructions.moveMotor("leftFront", 1.0d));
-        see.add(Instructions.moveMotor("rightFront", 1.0d));
-        see.add(Instructions.waitForever());
+        see.add(Command.moveMotor("leftFront", 1.0d));
+        see.add(Command.moveMotor("rightFront", 1.0d));
+        see.add(Command.waitForever());
+
+        //see.write(new File(""));
 
         //Simulated action one
         doStuffMethod(1000);
