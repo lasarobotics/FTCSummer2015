@@ -1,8 +1,9 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.lasarobotics.ftc.monkeyc.Commands;
 import com.lasarobotics.ftc.monkeyc.MonkeyC;
-import com.lasarobotics.ftc.monkeyc.Command;
 import com.lasarobotics.ftc.monkeyc.MonkeyDo;
+import com.lasarobotics.ftc.monkeyc.command.MotorCommand;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -43,23 +44,10 @@ public class AutoThread extends Thread {
         MonkeyC see = new MonkeyC(doo);
 
         see.clear();
-        see.add(Command.moveMotor("leftFront", 1.0d));
-        see.add(Command.moveMotor("rightFront", 1.0d));
-        see.add(Command.waitForever());
+        see.add(Commands.moveMotor("leftFront", 1.0d));
+        see.add(Commands.moveMotor("rightFront", 1.0d));
+        see.add(Commands.waitForever());
 
-        //see.write(new File(""));
-
-        //Simulated action one
-        doStuffMethod(1000);
-        //Simulated action two
-        doStuffMethod(2000);
-    }
-
-    private void doStuffMethod(int time){
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        //see.write("");
     }
 }
