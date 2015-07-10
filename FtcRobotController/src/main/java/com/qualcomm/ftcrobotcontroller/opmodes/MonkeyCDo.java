@@ -3,7 +3,6 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import android.util.Log;
 
 import com.lasarobotics.ftc.controller.Controller;
-import com.lasarobotics.ftc.monkeyc.MonkeyC;
 import com.lasarobotics.ftc.monkeyc.MonkeyData;
 import com.lasarobotics.ftc.monkeyc.MonkeyDo;
 import com.lasarobotics.ftc.sensor.Gyroscope;
@@ -44,14 +43,13 @@ public class MonkeyCDo extends OpMode {
     @Override
     public void loop() {
         MonkeyData m = reader.getNextCommand();
-        if (m.one != null && m.two != null){
-            one = m.one;
-            two = m.two;
-            Log.d("debug", "Time: " + reader.t.getClockValue("global") + " Command: " + m.time);
-            //Drive commands go here (must match recorded commands)
-        }
-        else{
-            //Done executing commands
+
+        one = m.updateControllerOne(one);
+        two = m.updateControllerTwo(two);
+
+        if (m.hasUpdate())
+        {
+            Log.d("debug", "Monkey Time: " + reader.t.getClockValue("global") + " Command Time: " + m.getTime());
         }
     }
 
