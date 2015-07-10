@@ -49,10 +49,8 @@ public class MonkeyCWrite extends OpMode {
         //update gamepads to controllers with events
         one.update(gamepad1);
         two.update(gamepad2);
-        if(t.getClockValue("writetimer") > 100){
-            writer.add(one,two);
-            t.resetClock("writetimer");
-        }
+        writer.add(one,two);
+        t.resetClock("writetimer");
         //Drive commands go here (must match when playing back)
 
     }
