@@ -57,7 +57,10 @@ public class FtcOpModeRegister implements OpModeRegister {
 
     manager.register("NullOp", NullOp.class);
     manager.register("AutoTest", AutoTest.class);
-    manager.register("FTC4290MecanumPrototypeTeleop",MecanumPrototypeTeleop.class);
+    manager.register("MecanumPrototypeTeleop",MecanumPrototypeTeleop.class);
+    manager.register("MonkeyCWrite",MonkeyCWrite.class);
+    manager.register("MonkeyCDo",MonkeyCDo.class);
+
     /*
     manager.register("IrSeekerOp", IrSeekerOp.class);
     manager.register("CompassCalibration", CompassCalibration.class);
