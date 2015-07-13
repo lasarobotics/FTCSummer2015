@@ -43,13 +43,16 @@ public class MonkeyCDo extends OpMode {
     @Override
     public void loop() {
         MonkeyData m = reader.getNextCommand();
-
-        one = m.updateControllerOne(one);
-        two = m.updateControllerTwo(two);
-
-        if (m.hasUpdate())
-        {
-            Log.d("debug", "Monkey Time: " + reader.t.getClockValue("global") + " Command Time: " + m.getTime());
+        if (m.hasUpdate()){
+            m = reader.getNextCommand();
+            one = m.updateControllerOne(one);
+            two = m.updateControllerTwo(two);
+            telemetry.addData("Status", "Replaying commands for file " + reader.getFilename());
+            //Drive commands go here
+        }
+        //Program done
+        else {
+            telemetry.addData("Status", "Done replaying");
         }
     }
 

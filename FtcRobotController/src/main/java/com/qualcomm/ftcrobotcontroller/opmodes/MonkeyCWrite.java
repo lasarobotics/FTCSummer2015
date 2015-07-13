@@ -2,7 +2,6 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 
 import com.lasarobotics.ftc.drive.Mecanum;
-import com.lasarobotics.ftc.controller.ButtonState;
 import com.lasarobotics.ftc.controller.Controller;
 import com.lasarobotics.ftc.monkeyc.MonkeyC;
 import com.lasarobotics.ftc.sensor.Gyroscope;
@@ -27,8 +26,6 @@ public class MonkeyCWrite extends OpMode {
     Controller one = new Controller();
     Controller two = new Controller();
     Gyroscope gyro;
-    Timers t;
-    @Override
     public void start() {
         gamepad1.setJoystickDeadzone(.1F);
         gamepad2.setJoystickDeadzone(.1F);
@@ -39,20 +36,16 @@ public class MonkeyCWrite extends OpMode {
 //        hw_gyro = hardwareMap.gyroSensor.get("hw_gyro");
 //        gyro = new Gyroscope(hw_gyro);
         writer = new MonkeyC();
-        t = new Timers();
-        t.startClock("writetimer");
     }
 
     @Override
     public void loop() {
-
         //update gamepads to controllers with events
         one.update(gamepad1);
         two.update(gamepad2);
-        writer.add(one,two);
-        t.resetClock("writetimer");
+        writer.add(one, two);
+        telemetry.addData("Status",writer.size() + " commands written");
         //Drive commands go here (must match when playing back)
-
     }
 
     @Override
